@@ -1,0 +1,71 @@
+﻿
+@model CarRental.Models.Car
+
+<form method="post">
+    <input asp-for="Car_Id" hidden/>
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Rent a car</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Car's Brand</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Brand" class="form-control" />
+                        <span asp-validation-for="Brand" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Year Made</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="YearMade" class="form-control" />
+                        <span asp-validation-for="YearMade" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Seats"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Seats" class="form-control" />
+                        <span asp-validation-for="Seats" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Price per Day</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="PricePerDay" class="form-control" />
+                        <span asp-validation-for="PricePerDay" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+    </div>
+
+</form>
+
+

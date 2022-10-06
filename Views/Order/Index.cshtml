@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CarRental.Models.Order>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary"> Orders</h1>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Order" asp-action="Create" class="btn btn-primary">
+                         Rent a car
+            </a>
+        </div>
+    </div>
+    <br />
+
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Car</th>
+                    <th>student</th>
+                    <th>Rent Date</th>
+                    <th>Number of days</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var orders in Model)
+                {
+                <tr>
+                    <td>@orders.Id</td>
+                    <td>@orders.car.Brand</td>
+                    <td>@orders.student.FirstName</td>
+                    <td>@orders.RentDate</td>
+                    <td>@orders.NumberOfDays</td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Order" asp-route-Id="@orders.Id" asp-action="Edit" class="btn btn-primary mx-1">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                            <a asp-controller="Order" asp-route-Id="@orders.Id" asp-action="Delete" class="btn btn-danger mx-1">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        
+    }
+</div>

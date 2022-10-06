@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CarRental.Models.Car>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary"> Cars for Rent</h1>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Car" asp-action="Create" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> &nbsp; Register a car
+            </a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Car ID</th>
+                    <th>Brand</th>
+                    <th>Year Made</th>
+                    <th>Total seats</th>
+                    <th>Available for rent</th>
+                    <th>Price Per Day</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cars in Model)
+                {
+                <tr>
+                    <td>@cars.Car_Id</td>
+                    <td>@cars.Brand</td>
+                    <td>@cars.YearMade </td>
+                    <td>@cars.Seats </td>
+                    <td>@cars.Availability </td>
+                    <td>@cars.PricePerDay </td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Car" asp-route-Id="@cars.Car_Id" asp-action="Edit" class="btn btn-primary mx-1">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                            <a asp-controller="Car" asp-route-Id="@cars.Car_Id" asp-action="Delete" class="btn btn-danger mx-1">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

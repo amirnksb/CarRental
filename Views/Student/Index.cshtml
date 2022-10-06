@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<CarRental.Models.Student>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary"> Students </h1>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Student" asp-action="Create" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> &nbsp; Sign up as a student
+            </a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var students in Model)
+                {
+                    <tr>
+                        <td>@students.Student_Id</td>
+                        <td>@students.FirstName</td>
+                        <td>@students.LastName</td>
+                        <td class="text-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Student" asp-route-Id="@students.Student_Id" asp-action="Edit" class="btn btn-primary mx-1">
+                                    <i class="fa-regular fa-pen-to-square"></i> 
+                                </a>
+                                <a asp-controller="Student" asp-route-Id="@students.Student_Id" asp-action="Delete" class="btn btn-danger mx-1">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+

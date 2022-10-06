@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class=" text-center " >
+    <div class="w-75 btn-group" role="group">
+        <a  asp-controller="Student" asp-action="Index" class="btn btn-primary mx-1">
+            <i class="fa-solid fa-user-plus"></i> Students
+        </a>
+        <a asp-controller="Car" asp-action="Index" class="btn btn-primary mx-1">
+            <i class="fa-solid fa-car"></i> Cars
+        </a>
+        <a asp-controller="Order" asp-action="Index" class="btn btn-primary mx-1">
+            <i class="fa-solid fa-car-side"></i> Book a Car
+        </a>
+    </div>
+</div>
